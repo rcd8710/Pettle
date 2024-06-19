@@ -1,0 +1,110 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #FFF7FC;
+}
+
+body {
+  background-image: url("back2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.headerOuter2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 22%;
+  width: 50%;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 40px solid;
+}
+
+.headerInner {
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  
+  margin-top: 20px;
+  position: absolute;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 50px;
+  padding: 20px;
+}
+
+.TopB{
+  min-width: 90px;
+  height: 60px;
+  margin-top: 20px;
+  z-index: 2;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color:black;
+  border-color: transparent;
+  border-radius: 8px;
+}
+
+.TopB:hover{
+  cursor: pointer;
+  background-color: rgb(161, 0, 83);
+}
+
+.svg-inline--fa{
+  color: white;
+  font-size: 35px;
+  
+}
+
+.TopB2{
+  min-width: 90px;
+  height: 60px;
+  z-index: 2;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color:black;
+  border-color: transparent;
+  border-radius: 8px;
+}
+
+.TopB2:hover{
+  cursor: pointer;
+  background-color: rgb(161, 0, 83);
+}
+
+.disco{
+  position: relative;
+  width: 100%; /* Make the image take up the full width of its container */
+  height: 100%; /* Make the image take up the full height of its container */
+  object-fit: contain; /* Ensures the image covers the container, cropping if necessary */
+  max-width: 150px; /* Ensures the image doesn't exceed the container's width */
+  max-height: 60px; /* Ensures the image doesn't exceed the container's height */
+
+}
+
+
+.bars{
+  position: fixed;
+  left: 30px;
+  top:10px;
+  width: 100px;
+  border-radius: 50px;
+  border-color: white;
+  border-style: solid;
+  outline: 4px solid black
+}
+
+.bars:hover{
+  background-color: rgb(161, 0, 83);
+  cursor: pointer;
+}
+
+span{
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: rgb(0, 0, 0);
+  width: 70px;
+}

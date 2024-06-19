@@ -35,9 +35,6 @@ body {
   padding: 20px;
 }
 
-#root {
-  height: 1400px;
-}
 
 .loginComp {
   border-style: solid;
@@ -154,4 +151,25 @@ body {
 
 .SignUp:hover{
   background-color: #8666c0;
+}
+
+.Reg{
+  background-color: rgb(245, 178, 249);
+  
+  margin-top: 0%;
+  text-align: center;
+  height: 50px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: rgb(255, 255, 255);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BLogin:hover{
+  
+  cursor: pointer;
+  color: blue;
 }

@@ -1,9 +1,10 @@
 import Login from "./Login"
+import AppHome from "./AppHome"
 function App() {
 
   return (
     <>
-     <Login></Login>
+    <AppHome></AppHome>
     </>
   )
 }
