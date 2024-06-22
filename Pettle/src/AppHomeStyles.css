@@ -93,7 +93,8 @@ body {
   border-radius: 50px;
   border-color: white;
   border-style: solid;
-  outline: 4px solid black
+  outline: 4px solid black;
+  z-index: 2;
 }
 
 .bars:hover{
@@ -107,4 +108,153 @@ span{
   padding-bottom: 4px;
   background-color: rgb(0, 0, 0);
   width: 70px;
+}
+
+.currency {
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  right: 30px;
+  top:10px;
+  width: 150px;
+  border-radius: 50px;
+  outline: 4px solid rgb(243, 225, 34);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: end;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.fa-coins{
+  color: rgb(255, 230, 0);
+  font-size: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-right: 20px;
+
+}
+
+.xp-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2a85f3; /* Green background */
+  color: white; /* White text */
+  padding: 10px 5px; /* Padding for some spacing */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  font-size: 20px; /* Font size */
+  font-weight: bold; /* Bold font */
+  width: 45%;
+  
+  clip-path: polygon(0% 0%, 97% 0%, 100% 100%, 3% 100%);
+  z-index: 2;
+  border-color: rgb(116, 8, 128);
+  border-width: 12px;
+  border-style: double;
+}
+.xp {
+  background-color: #f2f2f2; /* Darker green background for the bar */
+  width: 120%;
+  height: 20px; /* Height of the XP bar */
+  border-radius: 5px;
+  z-index: 2;
+}
+.xp-fill {
+  background-color: #47e6e9; /* Light green fill color */
+  height: 100%;
+  width: 50%; /* Width of the fill, this should be dynamic based on the XP */
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.pod{
+  position: fixed;
+  width: 800px;
+  height: 220px;
+  bottom: -40px;
+  left: 23%;
+}
+
+.dailyCon{
+  width: 350px;
+  height: 590px;
+  position: fixed;
+  right: 20px;
+  bottom: 5%;
+}
+
+.con{
+  background-color: white;
+  height: 175px;
+  width: 350px;
+  gap: 20px;
+  border-style: solid;
+  margin-top: 20px;
+  border-radius: 9px;
+  border-style:solid;
+}
+
+.con:hover{
+  cursor: pointer;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  background-color: #373737;
+  border-right: 5px solid #000000de;
+  padding: 10px;
+  position: absolute;
+  top: 0px; /* Adjust according to your header height */
+  left: 0;
+  width: 15%;
+  height: 97.2%;
+  z-index: 1;
+   transition: transform 0.5s ease; /* Add transition for transform property */
+  transform: translateX(-100%); /* Initially hide the navigation off-screen */
+}
+
+.navigation.show {
+  transform: translateX(0); /* Show the navigation by sliding it to the right */
+}
+
+
+.navigation a {
+  padding: 10px;
+  text-decoration: none;
+  margin: 30px;
+  color: #ffffff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  position: relative; /* Needed for the pseudo-element */
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust this value to control the underline position */
+  width: 70%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease; /* Smooth transition for the underline effect */
+  
+}
+
+
+.navigation a:hover {
+  color: rgb(255, 0, 132); /* Purple color for the text on hover */
+}
+
+.navigation a:hover::after {
+  background-color: rgb(255, 0, 132); /* Purple color for the underline on hover */
+}
+
+.navigation .one {
+  margin-top: 70px;
 }
