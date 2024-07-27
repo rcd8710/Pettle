@@ -1,10 +1,11 @@
 import Login from "./Login"
 import AppHome from "./AppHome"
+import Pet from "./Pet"
 function App() {
 
   return (
     <>
-    <AppHome></AppHome>
+    <Pet></Pet>
     </>
   )
 }
