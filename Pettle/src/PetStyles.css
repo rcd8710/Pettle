@@ -1,0 +1,18 @@
+.petInfoDiv {
+    background-color: rgb(235, 235, 235);
+    width: 400px;
+    height: 450px;
+    position: fixed;
+    right: 150px;
+    top: 20%;
+    border: 5px solid rgb(247, 211, 6); /* Inner border */
+    border-radius: 20px;
+    box-shadow: 0 0 0 6px rgba(239, 235, 39, 0.8); /* Outer border */
+}
+
+.petRoomStage{
+    width: 650px;
+    position: fixed;
+    bottom: -100px;
+    left: 200px;
+}

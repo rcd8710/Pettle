@@ -3,9 +3,8 @@ import "./AppHomeStyles.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse,faShop,faPaw,faBars,faCoins } from "@fortawesome/free-solid-svg-icons";
 import discoBall from "./disco-ball(1).png"
-import "./PetStyles.css" 
-import stage from "./stagePlat.png"
-
+import "./DiscoStyles.css"
+import ballRoom from "./ballroom.png"
 
 
 export default function Pet() {
@@ -38,11 +37,9 @@ export default function Pet() {
           <a href="#profile">History</a>
           <a href="#profile">Health</a>
         </nav>
-
+        <img src = {ballRoom} className='ballRoom'></img>
       
     </div>
-    <img src = {stage} className='petRoomStage'></img>
-    <div className='petInfoDiv'></div>
     </>
   )
 }
