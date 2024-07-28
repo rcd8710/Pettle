@@ -1,9 +1,11 @@
 import React, { useCallback, useState } from 'react'
+import "./AppHomeStyles.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse,faShop,faPaw,faBars,faCoins } from "@fortawesome/free-solid-svg-icons";
 import discoBall from "./disco-ball(1).png"
-import "./DiscoStyles.css"
-import ballRoom from "./ballroom.png"
+import "./StoreStyles.css"
+import stage from "./stagePlat.png"
+
 
 
 export default function Pet() {
@@ -20,9 +22,9 @@ export default function Pet() {
   return (
     <>
         
-      <div className='headerOuter2-1'>
+      <div className='headerOuter2'>
       <span className='bars' onClick={updateShowNav}><FontAwesomeIcon icon={faBars}/></span>
-      <h1 className="headerInner-1">
+      <h1 className="headerInner">
         <button className='TopB'><FontAwesomeIcon icon={faHouse} /></button>
         <button className='TopB'><FontAwesomeIcon icon={faPaw}/></button>
         <button className='TopB2'><img src = {discoBall} className='disco'></img></button>
@@ -36,8 +38,13 @@ export default function Pet() {
           <a href="#profile">History</a>
           <a href="#profile">Health</a>
         </nav>
-        <img src = {ballRoom} className='ballRoom'></img>
-      
+        <span className='currency'><FontAwesomeIcon icon={faCoins}/>1000</span>
+        <div className='StoreCon'>
+        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
+        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
+        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
+        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
+      </div>
     </div>
     </>
   )

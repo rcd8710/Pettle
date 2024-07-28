@@ -1,0 +1,43 @@
+.StoreCon {
+    position: fixed;
+    width: 101%;
+    
+    height: 500px;
+    top: 18%;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    margin-left: 10px;
+}
+
+.Scon {
+    width: 350px;
+    height: 450px;
+    background-color: rgb(255, 238, 195);
+    border-style: solid;
+    display: flex; /* Flexbox layout for centering content within the box */
+    justify-content: center; /* Centers content horizontally */
+    border-radius: 8px;
+    margin-left: 20px;
+    border: 5px solid rgb(247, 211, 6); /* Inner border */
+    border-radius: 20px;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.label{
+    background-color: aqua;
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+}
+
+.price {
+    background-color: rgb(181, 0, 0);
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    position: fixed;
+    bottom: 15%;
+}

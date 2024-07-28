@@ -1,15 +1,33 @@
 .ballRoom{
     position: fixed;
     bottom: 0px;
-    height: 650px;
+    height: 670px;
     width: 100%;
     left: 0px;
 }
 
-body{
-    background-image: none;
-    background-color: black;
+.headerOuter2-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -2%;
+    width: 100%;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 40px solid;
+  }
+  
+  .headerInner-1 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 20px;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    padding: 20px;
 }
 
-.navigation {
-}
+
+
