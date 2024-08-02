@@ -1,0 +1,49 @@
+.classCon {
+    width: 1350px;
+    min-height: 500px;
+    position: fixed;
+    z-index: 1;
+    top: 14.5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjusted to create equal-width columns */
+    grid-column-gap: 5px; /* Decreased gap between columns */
+    grid-row-gap: 2px; /* Increased gap between rows */
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+
+}
+
+.teach {
+    background-color: blue;
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+.stu {
+    background-color: rgb(255, 108, 2);
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}   
+
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 50px;
+    background-color: wheat;
+}

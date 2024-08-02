@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import "./LoginRegistrationStyles.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
+  
+  const handleLogin = () => {
+    // Perform login logic
+    navigate('/home'); // Navigate to the AppHome page after login
+  };
   const [loginVal, setLoginVal] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
   const [confirmpasswordVal, setConfirmPasswordVal] = useState("");
@@ -28,12 +35,21 @@ export default function Login() {
     setIsSignUp(!isSignUp);
   }
 
+ 
+
+ 
+
   function printLogPass() {
     console.log('Username:', loginVal);
     console.log('Email:', emailVal);
     console.log('Password:', passwordVal);
     console.log('Confirm Password:', confirmpasswordVal);
   }
+
+  const handleRegister = () => {
+    // Perform registration logic
+    navigate('/home'); // Navigate to the AppHome page after registration
+  };
 
   return (
     <>
@@ -55,8 +71,8 @@ export default function Login() {
             <h2 className=''>Welcome to Pettle!</h2>
             <p className='UserName'><input className='UserInput' placeholder='Username' value={loginVal} onChange={updateLoginVal}></input></p>
             <p className='Password'><input className='PassInput' placeholder='Password' value={passwordVal} onChange={updatePassVal}></input></p>
-            <button className='Login' onClick={printLogPass}>Login</button>
-            <button className='SignUp' onClick={toggleSignUp}>SignUp</button>
+            <button className='Login' onClick={handleLogin}>Login</button>
+            <button className='SignUp' onClick={handleRegister}>SignUp</button>
           </>
         )}
       </div>
