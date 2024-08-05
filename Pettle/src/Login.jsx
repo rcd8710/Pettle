@@ -101,6 +101,7 @@ export default function Login() {
   const [isStudent, setIsStudent] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);
 
+
 //confusion on use call back
 
 
@@ -143,6 +144,29 @@ export default function Login() {
     navigate('/home');
   };
 
+  const renderForm = () => {
+    if(isSignUp){
+      if (!isTeacher && !isStudent) { 
+        return (
+        <div className='piece1'>
+          <img src={parrot} className='parrot' alt='Parrot' />
+          <button className='teach1' onClick={() => toggleCheckStuOrTeach('teach')}>Are you a teacher?</button>
+          <button className='student1' onClick={() => toggleCheckStuOrTeach('stu')}>Are you a student?</button>
+          <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>
+        </div>
+        );
+      }
+      return isTeacher ? (
+        <TeacherForm formVals={formVals} updateForm={updateForm} handleRegister={handleRegister} backToLogin={backToLogin("teach")}/>
+      ) : isStudent ? (
+        <StudentForm formVals={formVals} updateForm = {updateForm} backToLogin={backToLogin("stu")}/>
+      ) : null
+    }
+    return (
+      <LoginForm formVals={formVals} updateForm={updateForm} handleLogin={handleLogin} toggleSignUp={toggleSignUp} />
+    )
+  }
+  
   return (
     <div className='logPage'>
       <div className='headerOuter'>
@@ -152,23 +176,9 @@ export default function Login() {
         <img src={puppy} className='dog' alt="Puppy" />
       </div>
       <div className='loginComp'>
-        {isSignUp ? (
-          !isTeacher && !isStudent ? (
-            <div className='piece1'>
-              <img src={parrot} className='parrot' alt='Parrot' />
-              <button className='teach1' onClick={() => toggleCheckStuOrTeach('teach')}>Are you a teacher?</button>
-              <button className='student1' onClick={() => toggleCheckStuOrTeach('stu')}>Are you a student?</button>
-              <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>
-            </div>
-          ) : isTeacher ? (
-            <TeacherForm formVals={formVals} updateForm={updateForm} handleRegister={handleRegister} backToLogin={backToLogin("teach")}/>
-          ) : isStudent ? (
-            <StudentForm formVals={formVals} updateForm = {updateForm} backToLogin={backToLogin("stu")}/>
-          ) : null
-        ) : (
-          <LoginForm formVals={formVals} updateForm={updateForm} handleLogin={handleLogin} toggleSignUp={toggleSignUp} />
-        )}
+        {renderForm()}
       </div>
     </div>
   );
+
 }
