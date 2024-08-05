@@ -24,7 +24,7 @@ export default function Pet() {
 
   return (
     <>
-        
+      <div className='page'>
       <div className='headerOuter2'>
       <span className='bars' onClick={updateShowNav}><FontAwesomeIcon icon={faBars}/></span>
       <h1 className="headerInner">
@@ -47,6 +47,7 @@ export default function Pet() {
     </div>
     <img src = {stage} className='petRoomStage'></img>
     <div className='petInfoDiv'></div>
+    </div>
     </>
   )
 }

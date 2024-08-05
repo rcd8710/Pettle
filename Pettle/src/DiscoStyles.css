@@ -2,8 +2,8 @@
     position: fixed;
     bottom: 0px;
     height: 670px;
-    width: 100%;
-    left: 0px;
+    width: 105%;
+    left: -75px;
 }
 
 .headerOuter2-1{
@@ -11,10 +11,8 @@
     justify-content: center;
     align-items: center;
     margin-left: -2%;
-    width: 100%;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-top: 40px solid;
+    width: 102%;
+    border-top: 50px solid;
   }
   
   .headerInner-1 {

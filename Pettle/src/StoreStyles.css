@@ -15,29 +15,72 @@
 .Scon {
     width: 350px;
     height: 450px;
-    background-color: rgb(255, 238, 195);
+
     border-style: solid;
     display: flex; /* Flexbox layout for centering content within the box */
     justify-content: center; /* Centers content horizontally */
     border-radius: 8px;
     margin-left: 20px;
-    border: 5px solid rgb(247, 211, 6); /* Inner border */
+    border: 5px solid rgb(255, 217, 0); /* Inner border */
     border-radius: 20px;
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 6px rgba(255, 242, 103, 0.8);
+}
+
+
+.Scon1{
+    background-image: url(supback.jpg);
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image within the container */
+
+}
+
+.Scon2{
+    background-image: url(sup2.jpg);
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image within the container */
+
+}
+
+.Scon3{
+    background-image: url(sup3.jpg);
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image within the container */
+
+}
+
+.Scon4{
+    background-image: url(sup4.jpg);
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image within the container */
+
 }
 
 .label{
-    background-color: aqua;
-    width: 200px;
-    height: 50px;
+    background-color: rgb(255, 255, 255);
+    width: 250px;
+    height: 60px;
     margin: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 4px;
 }
 
 .price {
-    background-color: rgb(181, 0, 0);
+    backdrop-filter: blur(15px); /* Applies a blur effect to the background */
     width: 200px;
     height: 50px;
     margin: 10px;
     position: fixed;
     bottom: 15%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-style: double;
+    border-width: 6px;
+    border-color: white;
+    color: white;
+
 }

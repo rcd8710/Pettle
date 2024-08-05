@@ -1,14 +1,16 @@
-html, body {
+.logPage {
   width: 100%;
-  height: 100%;
+  height: 703px;
   margin: 0;
   background-color: #FFF7FC;
 }
 
-body {
-  background-image: url("animalBack.png");
+.logPage {
+  background-image: url("paws.png"), url("back2.jpg");
   background-repeat: no-repeat; 
   background-position: center;
+  background-size: cover;
+
 }
 
 
@@ -27,9 +29,9 @@ body {
 
 .headerInner {
   color: rgb(255, 255, 255);
-
-  margin-top: -20px;
+  
   position: absolute;
+  top: -5%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 50px;
   padding: 20px;
@@ -43,11 +45,21 @@ body {
   width: 450px;
   margin: auto; /* Center horizontally */
   height: 350px;
-  margin-top: 100px; /* Adjust top margin as needed */
   border-radius: 20px;
   text-align: center;
   background-color: rgb(245, 178, 249);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.piece1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Wel{
@@ -65,9 +77,16 @@ body {
   align-items: center;
 }
 
+h2{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 9px;
+  margin-bottom: 14px;
+
+}
+
 .UserName{
   font-size: 18px;
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 .UserInput {
@@ -95,7 +114,7 @@ body {
 
 .Password{
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .PassInput{
@@ -107,7 +126,10 @@ body {
   transition: border-color 0.3s ease; /* Smooth transition for border color change */
   margin-left: 5px;
   border-color: rgb(231, 127, 222);
+  
 }
+
+
 
 .PassInput:focus {
    /* Change border color when input is focused */
@@ -131,12 +153,31 @@ body {
   font-size: 16px;
   text-transform: uppercase;
   margin-right: 10px;
+ 
 }
 
 .Login:hover{
   background-color: rgb(88, 114, 210);
 }
 
+
+.Login1 {
+  background-color: #28ff3a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-right: 10px;
+ 
+}
+
+.Login1:hover{
+  background-color: rgb(21, 206, 0);
+
+}
 
 .SignUp {
   background-color: #a385db;
@@ -168,8 +209,137 @@ body {
   align-items: center;
 }
 
+.BLogin{
+  right:47.5% ;
+  position: absolute;
+  bottom: 25%;
+  margin-top: 20px;
+}
+
 .BLogin:hover{
   
   cursor: pointer;
   color: blue;
+}
+
+.BLogin1:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+
+.dog {
+  right: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 160px;
+}
+.kitten {
+  right: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-style:solid ;
+  border-width:2px ;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.petCell{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: -12px;
+}
+
+.teach1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22.5px;
+  width: 300px;
+  height: 45px;
+  border-radius: 20px;
+  background-color: rgb(220, 0, 0);
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+
+  margin: 20px;
+}
+
+.student1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22.5px;
+  width: 300px;
+  height: 45px;
+  border-radius: 20px;
+  background-color: rgb(0, 71, 204);
+  margin: 10px;
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.but1{
+  display: flex;
+}
+
+.parrot{
+    right: 48%;
+    height: 50px;
+    position: absolute;
+    top: 35%;
+    border-style:solid ;
+    border-width:2px ;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.teach1:hover{
+  background-color: rgb(194, 0, 0);
+  cursor: pointer;
+}
+
+.student1:hover{
+  background-color: rgb(0, 62, 178);
+  cursor: pointer;
+}
+
+
+.input-container {
+  display: flex;
+  justify-content: center; /* Center the input within the container */
+  margin: 20px; /* Add some margin around the container */
+}
+
+.input-bar {
+  width: 100%; /* Make the input bar full-width within its container */
+  max-width: 400px; /* Set a maximum width for larger screens */
+  padding: 10px; /* Add padding inside the input */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+  font-size: 16px; /* Increase font size for better readability */
+  outline: none; /* Remove default focus outline */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effects */
+}
+
+.input-bar:focus {
+  border-color: #007BFF; /* Change border color on focus */
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3); /* Enhanced shadow on focus */
+}
+
+.input-bar::placeholder {
+  color: #aaa; /* Light gray color for placeholder text */
 }

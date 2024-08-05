@@ -17,7 +17,7 @@ export default function AppHome() {
 
   return (
     <>
-        
+      <div className='page'>
       <div className='headerOuter2'>
       <span className='bars' onClick={updateShowNav}><FontAwesomeIcon icon={faBars}/></span>
       <h1 className="headerInner">
@@ -50,6 +50,7 @@ export default function AppHome() {
         </div>
     </div>
     <img src = {podium} className='pod'></img>
+    </div> 
     </>
   )
 }

@@ -24,7 +24,7 @@ export default function Pet() {
 
   return (
     <>
-        
+      <div className='page'>
       <div className='headerOuter2'>
       <span className='bars' onClick={updateShowNav}><FontAwesomeIcon icon={faBars}/></span>
       <h1 className="headerInner">
@@ -44,11 +44,12 @@ export default function Pet() {
         </nav>
         <span className='currency'><FontAwesomeIcon icon={faCoins}/>1000</span>
         <div className='StoreCon'>
-        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
-        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
-        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
-        <div className='Scon'><div className = 'label'></div><div className = 'price'></div></div>
+        <div className='Scon Scon1'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
+        <div className='Scon Scon2'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
+        <div className='Scon Scon3'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
+        <div className='Scon Scon4'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
       </div>
+    </div>
     </div>
     </>
   )

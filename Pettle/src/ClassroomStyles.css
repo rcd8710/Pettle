@@ -1,25 +1,29 @@
+
+
+
 .classCon {
-    width: 1350px;
-    min-height: 500px;
-    position: fixed;
+    width: 1000px;
+    height: 500px;
     z-index: 1;
-    top: 14.5%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjusted to create equal-width columns */
+    grid-template-columns: repeat(7, 1fr); /* Adjusted to create equal-width columns */
     grid-column-gap: 5px; /* Decreased gap between columns */
-    grid-row-gap: 2px; /* Increased gap between rows */
+    grid-row-gap: 20px; /* Increased gap between rows */
+    
     justify-content: center;
-    align-items: center;
     z-index: 0;
+    margin-top: 100px;
 
 }
 
 .teach {
-    background-color: blue;
+    background-color: rgb(255, 87, 87);
     width: 150px;
     height: 150px;
-    border-style: solid;
+    border-style:double;
+    border-width: 20px;
     margin-left: 20px;
+    border-radius: 5px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -27,7 +31,7 @@
 }
 
 .stu {
-    background-color: rgb(255, 108, 2);
+    background-color: rgb(239, 142, 142);
     width: 150px;
     height: 150px;
     border-style: solid;
@@ -35,6 +39,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    border-radius: 4px;
 
 }   
 
@@ -44,6 +49,6 @@
     align-items: center;
     
     width: 100%;
-    height: 50px;
-    background-color: wheat;
+    height: 40px;
+    background-color: rgb(255, 245, 226);
 }

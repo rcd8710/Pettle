@@ -1,15 +1,16 @@
-html, body {
-  width: 100%;
-  height: 100%;
+body{
   margin: 0;
-  background-color: #FFF7FC;
 }
 
-body {
+.page {
+  width: 100%;
+  height: 703px;
   background-image: url("back2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
 
 .headerOuter2 {
   display: flex;
@@ -91,7 +92,7 @@ body {
   top:10px;
   width: 100px;
   border-radius: 50px;
-  border-color: white;
+  border-color: rgb(255, 255, 255);
   border-style: solid;
   outline: 4px solid black;
   z-index: 2;
@@ -144,18 +145,18 @@ span{
   bottom: 70px;
   left: 50%;
   transform: translateX(-50%);
-  color: white; /* White text */
+  color: rgb(91, 125, 246); /* White text */
   padding: 10px 5px; /* Padding for some spacing */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  box-shadow: 0px 4px 8px rgba(0, 101, 234, 0.1); /* Light shadow for depth */
   font-size: 20px; /* Font size */
   font-weight: bold; /* Bold font */
   width: 45%;
   
   z-index: 2;
   border-width: 7px;
-  border-style:dotted;
+  border-style:groove;
   border-radius: 50px;
-  background-color: rgb(244, 242, 204);
+  background-color: rgb(124, 197, 249);
 }
 .xp {
   background-color: #ebe8e8; /* Darker green background for the bar */
@@ -226,7 +227,7 @@ span{
 .navigation a {
   padding: 10px;
   text-decoration: none;
-  margin: 30px;
+  margin: 24px;
   color: #ffffff;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
