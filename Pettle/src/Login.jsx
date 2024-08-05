@@ -1,161 +1,174 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import "./LoginRegistrationStyles.css";
 import { useNavigate } from 'react-router-dom';
-import parrot from "./parrot.png"
-import fish from "./transfish.png"
-import kitten from "./transkit1.png"
-import puppy from "./transpup.png"
-import turtle from "./transturtle.png"
-import flowers from "./trflow.png"
+import parrot from "./parrot.png";
+import fish from "./transfish.png";
+import kitten from "./transkit1.png";
+import puppy from "./transpup.png";
+import turtle from "./transturtle.png";
 
+const LoginForm = ({ formVals, updateForm, handleLogin, toggleSignUp }) => (
+  <>
+    <h2>Welcome to Pettle!</h2>
+    <img src={kitten} className='kitten' alt="Kitten" />
+    <p className='UserName'>
+      <input
+        className='UserInput'
+        name='loginVal'
+        placeholder='Username'
+        value={formVals.loginVal}
+        onChange={updateForm}
+      />
+    </p>
+    <p className='Password'>
+      <input
+        className='PassInput'
+        name='passwordVal'
+        placeholder='Password'
+        value={formVals.passwordVal}
+        onChange={updateForm}
+      />
+    </p>
+    <div className='but1'>
+      <button className='Login' onClick={handleLogin}>Login</button>
+      <button className='SignUp' onClick={toggleSignUp}>SignUp</button>
+    </div>
+  </>
+);
+
+const TeacherForm = ({ formVals, updateForm, handleRegister,backToLogin }) => (
+  <div>
+    <h2>Please Register</h2>
+    <img src={turtle} className='kitten' alt="Turtle" />
+    <p className='email UserName'>
+      <input
+        className='Email UserInput'
+        name='emailVal'
+        placeholder='Email'
+        value={formVals.emailVal}
+        onChange={updateForm}
+      />
+    </p>
+    <p className='Password'>
+      <input
+        className='PassInput'
+        name='passwordVal'
+        placeholder='Password'
+        value={formVals.passwordVal}
+        onChange={updateForm}
+      />
+    </p>
+    <p className='conPassword'>
+      <input
+        className='PassInput'
+        name='confirmpasswordVal'
+        placeholder='Confirm Password'
+        value={formVals.confirmpasswordVal}
+        onChange={updateForm}
+      />
+    </p>
+    <button className='Login' onClick={handleRegister} >Register</button>
+    <p className='BLogin1' onClick={() => backToLogin("teach")}>Back to Login</p>
+  </div>
+);
+
+const StudentForm = ({formVals, updateForm,backToLogin}) => (
+  <>
+    <img src={fish} className='kitten' alt='Fish' />
+    <h2>Class Code:</h2>
+    <div className="input-container">
+      <input type="text" className="input-bar" placeholder="Enter code here..." value={formVals.codeVal}
+        onChange={updateForm} />
+    </div>
+    <button className='Login1'>Submit</button>
+    <p className='BLogin1' onClick={() => backToLogin("teach")}>Back to Login</p>
+
+  </>
+);
 
 export default function Login() {
   const navigate = useNavigate();
   
-  const handleLogin = () => {
-    // Perform login logic
-    navigate('/home'); // Navigate to the AppHome page after login
-  };
-  const [loginVal, setLoginVal] = useState("");
-  const [passwordVal, setPasswordVal] = useState("");
-  const [confirmpasswordVal, setConfirmPasswordVal] = useState("");
-  const [emailVal, setEmailVal] = useState("");
+  const [formVals, setFormVals] = useState({
+    loginVal: '',
+    passwordVal: '',
+    confirmpasswordVal: '',
+    emailVal: '',
+    codeVal: '',
+  });
+
   const [isSignUp, setIsSignUp] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);
 
-  function updateEmailVal(e) {
-    setEmailVal(e.target.value);
-  }
+//confusion on use call back
 
-  function updateLoginVal(e) {
-    setLoginVal(e.target.value);
-  }
 
-  function updatePassVal(e) {
-    setPasswordVal(e.target.value);
-  }
-
-  function updateConfirmPasswordval(e) {
-    setConfirmPasswordVal(e.target.value);
-  }
-
-  function toggleSignUp() {
-    setIsSignUp(!isSignUp);
-  }
+  const updateForm = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormVals(prev => ({ ...prev, [name]: value }));
+  }, []);
   
-  function toggleTeacher(){
-    setIsTeacher(!isTeacher)
-  }
 
-    
-  function toggleStudent(){
-    setIsStudent(!isStudent)
-  }
+  const toggleSignUp = useCallback(() => {
+    setIsSignUp(prev => !prev);
+  }, []);
+  
 
-  function toggleTeacher2() {
-    setIsTeacher(!isTeacher)
-    setIsSignUp(!isSignUp);
-  }
+  const toggleCheckStuOrTeach = useCallback((role) => {
+    if (role === 'teach') {
+      setIsTeacher(prev => !prev);
+    } else if (role === 'stu') {
+      setIsStudent(prev => !prev);
+    }
+  }, []);
+  
 
- 
+  const backToLogin = useCallback((role) => () => {
+    if (role === 'teach') {
+      setIsTeacher(prev => !prev);
+      setIsSignUp(!isSignUp)
+    } else if (role === 'stu') {
+      setIsStudent(prev => !prev);
+      setIsSignUp(!isSignUp)
+    }
+  }, []);
 
- 
 
-  function printLogPass() {
-    console.log('Username:', loginVal);
-    console.log('Email:', emailVal);
-    console.log('Password:', passwordVal);
-    console.log('Confirm Password:', confirmpasswordVal);
-  }
-
-  const handleRegister = () => {
-    // Perform registration logic
-    navigate('/home'); // Navigate to the AppHome page after registration
+  const handleLogin = () => {
+    navigate('/home');
   };
 
-  const teach = (<div><h2 className=''>Please Register</h2>
-  <img src = {turtle} className='kitten'></img>
-  <p className='email UserName'><input className ='Email UserInput' placeholder='Email' value={emailVal} onChange={updateEmailVal}></input></p>
-  <p className='Password'><input className='PassInput' placeholder='Password' value={passwordVal} onChange={updatePassVal}></input></p>
-  <p className='conPassword'><input className='PassInput' placeholder='Confirm Password' value={confirmpasswordVal} onChange={updateConfirmPasswordval}></input></p>
-  <button className='Login'>Register</button>
-  <p className='BLogin1' onClick={toggleTeacher2}>Back to Login</p></div>
-);
+  const handleRegister = () => {
+    navigate('/home');
+  };
 
   return (
-    <>
-      <div className='logPage'>
-      <div className='headerOuter'><h1 className="headerInner">Pettle</h1></div>
-      <div className='petCell'><img src = {puppy} className='dog'></img></div>
+    <div className='logPage'>
+      <div className='headerOuter'>
+        <h1 className="headerInner">Pettle</h1>
+      </div>
+      <div className='petCell'>
+        <img src={puppy} className='dog' alt="Puppy" />
+      </div>
       <div className='loginComp'>
         {isSignUp ? (
-          
-          <>
-  {(!isTeacher && !isStudent) && (
-    <div className='piece1'>
-      <img src={parrot} className='parrot' alt='parrot' />
-      <button className='teach1' onClick={toggleTeacher}>Are you a teacher?</button>
-      <button className='student1' onClick={toggleStudent}>Are you a student?</button>
-      <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>
-    </div>
-  )}
-  {isTeacher ? (
-    <>
-      {teach}
-    </>
-  ) : (
-    <>
-      
-    </>
-  )}
-  {isStudent ? (
-    <>
-     <img src={fish} className='parrot' alt='parrot' />
-     <h2 className=''>Class Code:</h2>
-     <div className="input-container">
-  <input type="text" className="input-bar" placeholder="Enter code here..." />
-</div>
-
-     <button className='Login1'>Submit</button>
-    </>
-  ) : (
-    <>
-      
-    </>
-  )}
-</>
-
-          
-        ) : (
-          <>
-            <h2 className=''>Welcome to Pettle!</h2>
-            <img src = {kitten} className='kitten'></img>
-            <p className='UserName'><input className='UserInput' placeholder='Username' value={loginVal} onChange={updateLoginVal}></input></p>
-            <p className='Password'><input className='PassInput' placeholder='Password' value={passwordVal} onChange={updatePassVal}></input></p>
-            <div className='but1'> 
-            <button className='Login' onClick={handleLogin}>Login</button>
-            <button className='SignUp' onClick={toggleSignUp}>SignUp</button>
+          !isTeacher && !isStudent ? (
+            <div className='piece1'>
+              <img src={parrot} className='parrot' alt='Parrot' />
+              <button className='teach1' onClick={() => toggleCheckStuOrTeach('teach')}>Are you a teacher?</button>
+              <button className='student1' onClick={() => toggleCheckStuOrTeach('stu')}>Are you a student?</button>
+              <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>
             </div>
-          </>
+          ) : isTeacher ? (
+            <TeacherForm formVals={formVals} updateForm={updateForm} handleRegister={handleRegister} backToLogin={backToLogin("teach")}/>
+          ) : isStudent ? (
+            <StudentForm formVals={formVals} updateForm = {updateForm} backToLogin={backToLogin("stu")}/>
+          ) : null
+        ) : (
+          <LoginForm formVals={formVals} updateForm={updateForm} handleLogin={handleLogin} toggleSignUp={toggleSignUp} />
         )}
       </div>
-      </div>
-     
-      {/*<img src = {fish} className='petimg'></img>
-      <img src = {kitten} className='petimg'></img>
-      <img src = {parrot} className='petimg'></img>
-      <h2 className=''>Please Register</h2>
-          <img src = {turtle} className='kitten'></img>
-          <p className='email UserName'><input className ='Email UserInput' placeholder='Email' value={emailVal} onChange={updateEmailVal}></input></p>
-          <p className='Password'><input className='PassInput' placeholder='Password' value={passwordVal} onChange={updatePassVal}></input></p>
-          <p className='conPassword'><input className='PassInput' placeholder='Confirm Password' value={confirmpasswordVal} onChange={updateConfirmPasswordval}></input></p>
-          <button className='Login'>Register</button>
-          <button className='SignUp'>Forgot password</button>
-          <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>
-      <img src = {turtle} className='petimg'></img>
-      */}
-
-    </>
+    </div>
   );
 }
