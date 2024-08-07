@@ -10,9 +10,14 @@
     box-shadow: 0 0 0 6px rgba(239, 235, 39, 0.8); /* Outer border */
 }
 
-.petRoomStage{
+.imageH1 {
     width: 650px;
     position: fixed;
     bottom: -100px;
     left: 200px;
+}
+
+.petRoomStage{
+    width: 100%;
+    height: auto;
 }

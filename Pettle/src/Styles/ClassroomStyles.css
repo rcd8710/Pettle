@@ -3,16 +3,17 @@
 
 .classCon {
     width: 1000px;
+    position: fixed;
     height: 500px;
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* Adjusted to create equal-width columns */
     grid-column-gap: 5px; /* Decreased gap between columns */
     grid-row-gap: 20px; /* Increased gap between rows */
-    
+    top: 20%;
     justify-content: center;
+    right: 18.5%;
     z-index: 0;
-    margin-top: 100px;
 
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './Login';
-import AppHome from './AppHome';
-import Pet from './Pet';
-import Disco from './Disco';
-import Store from './Store';
-import Classroom from './Classroom';
+import Login from './Pages/Login';
+import AppHome from './Pages/AppHome';
+import Pet from './Pages/Pet';
+import Disco from './Pages/Disco';
+import Store from './Pages/Store';
+import Classroom from './Pages/Classroom';
 
 function App() {
   return (

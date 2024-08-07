@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import "./LoginRegistrationStyles.css";
+import "../Styles/LoginRegistrationStyles.css";
 import { useNavigate } from 'react-router-dom';
-import parrot from "./parrot.png";
-import fish from "./transfish.png";
-import kitten from "./transkit1.png";
-import puppy from "./transpup.png";
-import turtle from "./transturtle.png";
+import parrot from "../Assets/Animal_images/parrot.png";
+import fish from "../Assets/Animal_images/transfish.png";
+import kitten from "../Assets/Animal_images/transkit1.png";
+import puppy from "../Assets/Animal_images/transpup.png";
+import turtle from "../Assets/Animal_images/transturtle.png";
 
 const LoginForm = ({ formVals, updateForm, handleLogin, toggleSignUp }) => (
   <>
@@ -149,7 +149,7 @@ export default function Login() {
       if (!isTeacher && !isStudent) { 
         return (
         <div className='piece1'>
-          <img src={parrot} className='parrot' alt='Parrot' />
+          <img src={parrot} className='parrot'/>
           <button className='teach1' onClick={() => toggleCheckStuOrTeach('teach')}>Are you a teacher?</button>
           <button className='student1' onClick={() => toggleCheckStuOrTeach('stu')}>Are you a student?</button>
           <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>

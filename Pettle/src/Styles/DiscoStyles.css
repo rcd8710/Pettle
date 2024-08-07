@@ -1,7 +1,17 @@
+.backDiv{
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0%;
+  background-color: black;
+  height: 50px;
+}
+
+
 .ballRoom{
     position: fixed;
     bottom: 0px;
-    height: 670px;
+    height: 700px;
     width: 105%;
     left: -75px;
 }
