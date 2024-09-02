@@ -16,13 +16,14 @@ export default function Pet() {
 
   return (
     <>
+        <div className='storePage'>
         <AppNav></AppNav>
-        <span className='currency'><FontAwesomeIcon icon={faCoins}/>1000</span>
         <div className='StoreCon'>
         <div className='Scon Scon1'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
         <div className='Scon Scon2'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
         <div className='Scon Scon3'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
         <div className='Scon Scon4'><div className = 'label'></div><div className = 'price'><FontAwesomeIcon icon={faCoins}/>1000</div></div>
+      </div>
       </div>
     </>
   )

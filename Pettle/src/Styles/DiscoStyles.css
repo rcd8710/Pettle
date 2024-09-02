@@ -1,20 +1,10 @@
 .backDiv{
-  position: fixed;
-  z-index: 1;
   width: 100%;
-  top: 0%;
-  background-color: black;
-  height: 50px;
+  height: 40vh;
+  margin-top: -30px;
 }
 
 
-.ballRoom{
-    position: fixed;
-    bottom: 0px;
-    height: 700px;
-    width: 105%;
-    left: -75px;
-}
 
 .headerOuter2-1{
     display: flex;
@@ -38,4 +28,81 @@
 }
 
 
+.discoPage{
+  width: 100%;
+  height: 105vh;
+  background-image: url(../Assets/Backgrounds/ballroom.png);
+  background-repeat:no-repeat ;
+  background-size: cover;
+}
 
+.chatBox {
+  width: 20%;
+  height: 100%;
+  margin-left: 40px;
+  border: 5px solid rgb(0, 0, 0); /* Light border */
+
+  border-radius: 15px; /* Rounded corners */
+  background: linear-gradient(135deg, #c7c7c7b8, #ffffffa5,rgba(255, 255, 255, 0.677), rgba(182, 182, 182, 0.71)); /* Soft gradient background */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensure content stays within the box */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.textBox{
+  width: 100%;
+  height: 87%;
+  background-color: rgba(0, 0, 255, 0.119);
+  border-style: solid;
+  border-left: none;
+  border-top: none;
+}
+.inputBar{
+  display: flex;
+}
+.inputText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding-bottom: 5px;
+  height: 100%;
+  border-style: solid;
+  background-color: rgba(240, 248, 255, 0.537);
+  border-color: transparent;
+  
+}
+
+.inputText:focus{
+  background-color: rgba(202, 202, 202, 0.492);
+  border-color: transparent;
+  outline: none;
+}
+
+
+.inputText:disabled{
+  background-color: rgba(240, 248, 255, 0.634);
+  border-color: transparent;
+}
+
+.textB {
+  padding: 7px; /* Preserved size */
+  margin-left: 1px; /* Preserved margin */
+  width: 20%;
+  border: none; /* Remove border */
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+  color: #fff; /* White text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.123), inset 0 2px 4px rgba(255, 255, 255, 0.216); /* Outer shadow with slight inner glow */
+  padding: 10px;
+}
+
+.textB:hover {
+  background: linear-gradient(135deg, #5b0eaa 0%, #1e5bd8 100%); /* Darker gradient on hover */
+}
+
+.textB:active {
+  background: linear-gradient(135deg, #3a0a75 0%, #1446a0 100%); /* Even darker gradient on active */
+}

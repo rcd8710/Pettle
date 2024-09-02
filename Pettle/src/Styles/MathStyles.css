@@ -1,0 +1,84 @@
+html{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    margin: 0px;
+    position: fixed;
+}
+
+.mathPage{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../Assets/Backgrounds/mathBoard.png);
+    background-size: cover;
+
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-position: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.midMath{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.mathShelf{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
+}
+
+.mathPick{
+    width: 80%;
+    background-color: aliceblue;
+    height: 80%;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.418); /* Shadow with offset and blur */
+}
+
+.bottomSelect2{
+    width: 100vw;
+    height:25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.mathBox{
+    width: 20%;
+    height: 90%;
+    background-color: aliceblue;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.418); /* Shadow with offset and blur */
+    
+}
+
+.mathBox:hover{
+    cursor: pointer;
+}
+
+
+/* Hover effect for all .fa-caret-right and .fa-caret-left icons */
+.fa-caret-right:hover, 
+.fa-caret-left:hover {
+    cursor: pointer;
+}
+
+/* Styling for icons with the 'math' class inside a container with 'mathShelf' class */
+.mathShelf .math {
+    color: rgb(255, 255, 255); /* Red color for icons within .mathShelf */
+    width: 80px;
+    height: 100px;
+}
+
+/* Styling for icons with the 'math' class inside a container with 'mathShelf' class */
+.mathShelf .math:hover {
+    color: rgba(255, 255, 255, 0.792); /* Red color for icons within .mathShelf */
+    
+}
+
+

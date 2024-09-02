@@ -1,0 +1,82 @@
+html{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    margin: 0px;
+    position: fixed;
+}
+
+.healthPage{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../Assets/Backgrounds/heartback.png);
+    background-size: cover;
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-position: center;
+    background-color: rgb(214, 153, 153);
+}
+
+.midHealth{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.healthShelf{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
+}
+
+.healthPick{
+    width: 80%;
+    background-color: aliceblue;
+    height: 80%;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.418); /* Shadow with offset and blur */
+}
+
+.bottomSelect{
+    width: 100vw;
+    height:25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.healthBox{
+    width: 20%;
+    height: 90%;
+    background-color: aliceblue;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.418); /* Shadow with offset and blur */
+    
+}
+
+.healthBox:hover{
+    cursor: pointer;
+}
+
+
+/* Hover effect for all .fa-caret-right and .fa-caret-left icons */
+.fa-caret-right:hover, 
+.fa-caret-left:hover {
+    cursor: pointer;
+}
+
+/* Styling for icons with the 'math' class inside a container with 'mathShelf' class */
+.healthShelf .health {
+    color: #ffffff; /* Red color for icons within .mathShelf */
+    width: 80px;
+    height: 100px;
+}
+
+/* Styling for icons with the 'math' class inside a container with 'mathShelf' class */
+.healthShelf .health:hover {
+    color: ivory; /* Red color for icons within .mathShelf */
+}
+
+

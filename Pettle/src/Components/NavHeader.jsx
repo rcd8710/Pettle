@@ -14,20 +14,14 @@ const NavHeader = () => {
   }, [navigate]);
 
   return (
-  <h1 className='headerInner'>
-    <button className='TopB' onClick={() => handleNavigate('/home')}>
-      <FontAwesomeIcon icon={faHouse} />
-    </button>
-    <button className='TopB' onClick={() => handleNavigate('/pet')}>
-      <FontAwesomeIcon icon={faPaw} />
-    </button>
-    <button className='TopB2' onClick={() => handleNavigate('/disco')}>
-      <img src={discoBall} className='disco'/>
-    </button>
-    <button className='TopB' onClick={() => handleNavigate('/store')}>
-      <FontAwesomeIcon icon={faShop} />
-    </button>
-  </h1>
+    <>
+    <div className="headerWrapper">
+  <div className='headerInner2'>
+  
+  </div>
+  </div>
+  
+</>
 );
 };
 

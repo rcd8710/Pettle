@@ -1,0 +1,83 @@
+html{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    margin: 0px;
+    position: fixed;
+}
+
+.sciencePage {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../Assets/Backgrounds/atomback.png);
+    background-size: 1200px 1000px; /* Ensures the image covers the entire container */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-position: center; /* Centers the image */
+    background-color: rgb(217, 176, 237); /* Fallback color if the image fails to load */
+}
+
+
+.midScience{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.scienceShelf{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
+}
+
+.sciencePick{
+    width: 80%;
+    background-color: aliceblue;
+    height: 80%;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.418); /* Shadow with offset and blur */
+}
+
+.bottomSelect{
+    width: 100vw;
+    height:25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.scienceBox{
+    width: 20%;
+    height: 90%;
+    background-color: aliceblue;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.418); /* Shadow with offset and blur */
+    
+}
+
+.scienceBox:hover{
+    cursor: pointer;
+}
+
+
+/* Hover effect for all .fa-caret-right and .fa-caret-left icons */
+.fa-caret-right:hover, 
+.fa-caret-left:hover {
+    cursor: pointer;
+}
+
+/* Styling for icons with the 'math' class inside a container with 'mathShelf' class */
+.scienceShelf .science {
+    color: rgb(150, 0, 191); /* Red color for icons within .mathShelf */
+    width: 80px;
+    height: 100px;
+}
+
+/* Styling for icons with the 'math' class inside a container with 'mathShelf' class */
+.scienceShelf .science:hover {
+    color: rgb(129, 0, 164); /* Red color for icons within .mathShelf */
+}
+
+

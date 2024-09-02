@@ -1,93 +1,22 @@
 import React, { useState, useCallback } from 'react';
 import "../Styles/LoginRegistrationStyles.css";
-import { useNavigate } from 'react-router-dom';
 import parrot from "../Assets/Animal_images/parrot.png";
-import fish from "../Assets/Animal_images/transfish.png";
-import kitten from "../Assets/Animal_images/transkit1.png";
-import puppy from "../Assets/Animal_images/transpup.png";
-import turtle from "../Assets/Animal_images/transturtle.png";
+import puppy from "../Assets/Animal_images/transpup.png"; //login
+import LoginComp from '../Components/LoginComp';
+import TeacherComp from '../Components/TeacherComp';
+import ForgotPassSendEmailForm from '../Components/ForgotPassSendEmailForm';
+import PasswordResetComp from '../Components/PasswordResetComp';
+import Student from '../Components/Student';
 
-const LoginForm = ({ formVals, updateForm, handleLogin, toggleSignUp }) => (
-  <>
-    <h2>Welcome to Pettle!</h2>
-    <img src={kitten} className='kitten' alt="Kitten" />
-    <p className='UserName'>
-      <input
-        className='UserInput'
-        name='loginVal'
-        placeholder='Username'
-        value={formVals.loginVal}
-        onChange={updateForm}
-      />
-    </p>
-    <p className='Password'>
-      <input
-        className='PassInput'
-        name='passwordVal'
-        placeholder='Password'
-        value={formVals.passwordVal}
-        onChange={updateForm}
-      />
-    </p>
-    <div className='but1'>
-      <button className='Login' onClick={handleLogin}>Login</button>
-      <button className='SignUp' onClick={toggleSignUp}>SignUp</button>
-    </div>
-  </>
-);
 
-const TeacherForm = ({ formVals, updateForm, handleRegister,backToLogin }) => (
-  <div>
-    <h2>Please Register</h2>
-    <img src={turtle} className='kitten' alt="Turtle" />
-    <p className='email UserName'>
-      <input
-        className='Email UserInput'
-        name='emailVal'
-        placeholder='Email'
-        value={formVals.emailVal}
-        onChange={updateForm}
-      />
-    </p>
-    <p className='Password'>
-      <input
-        className='PassInput'
-        name='passwordVal'
-        placeholder='Password'
-        value={formVals.passwordVal}
-        onChange={updateForm}
-      />
-    </p>
-    <p className='conPassword'>
-      <input
-        className='PassInput'
-        name='confirmpasswordVal'
-        placeholder='Confirm Password'
-        value={formVals.confirmpasswordVal}
-        onChange={updateForm}
-      />
-    </p>
-    <button className='Login' onClick={handleRegister} >Register</button>
-    <p className='BLogin1' onClick={() => backToLogin("teach")}>Back to Login</p>
-  </div>
-);
 
-const StudentForm = ({formVals, updateForm,backToLogin}) => (
-  <>
-    <img src={fish} className='kitten' alt='Fish' />
-    <h2>Class Code:</h2>
-    <div className="input-container">
-      <input type="text" className="input-bar" placeholder="Enter code here..." value={formVals.codeVal}
-        onChange={updateForm} />
-    </div>
-    <button className='Login1'>Submit</button>
-    <p className='BLogin1' onClick={() => backToLogin("teach")}>Back to Login</p>
 
-  </>
-);
+
+
+
+
 
 export default function Login() {
-  const navigate = useNavigate();
   
   const [formVals, setFormVals] = useState({
     loginVal: '',
@@ -100,10 +29,18 @@ export default function Login() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);
-
-
+  const [isForgotPassword, setIsForgotPassword] = useState(false)
+  const [isnewPass, setIsnewPass] = useState(false)
 //confusion on use call back
+  const toggleForgotPassword = useCallback(() => {
+    setIsSignUp(prev => !prev);
+    setIsForgotPassword(prev => !prev);
+  }, []);
+  
+  const toggleNewPass = useCallback(() => {
+    setIsnewPass(prev => !prev)
 
+  }, []);
 
   const updateForm = useCallback((e) => {
     const { name, value } = e.target;
@@ -135,35 +72,51 @@ export default function Login() {
     }
   }, []);
 
+  const backToLoginForgot = useCallback(() => {
+    setIsSignUp(prev => !prev);
+    setIsForgotPassword(prev => !prev)
+  }, []);
 
-  const handleLogin = () => {
-    navigate('/home');
-  };
+  const backToLoginForgot2 = useCallback(() => {
+    setIsSignUp(prev => !prev);
+    setIsForgotPassword(prev => !prev)
+    setIsnewPass(prev => !prev)
+  }, []);
 
-  const handleRegister = () => {
-    navigate('/home');
-  };
+  
+
+
+
 
   const renderForm = () => {
     if(isSignUp){
+      if (isForgotPassword && !isnewPass){
+        return <ForgotPassSendEmailForm formVals={formVals} updateForm={updateForm}  backToLoginForgot={backToLoginForgot} toggleNewPass={toggleNewPass}/>
+      }
+      if (isnewPass && isForgotPassword){
+        return <PasswordResetComp formVals={formVals} updateForm={updateForm}  backToLoginForgot2={backToLoginForgot2}></PasswordResetComp>
+      }
+      else{
       if (!isTeacher && !isStudent) { 
         return (
         <div className='piece1'>
-          <img src={parrot} className='parrot'/>
+          <div className='par'><img src={parrot} className='parrot'/></div>
           <button className='teach1' onClick={() => toggleCheckStuOrTeach('teach')}>Are you a teacher?</button>
           <button className='student1' onClick={() => toggleCheckStuOrTeach('stu')}>Are you a student?</button>
           <p className='BLogin' onClick={toggleSignUp}>Back to Login</p>
         </div>
         );
       }
+    }
+      
       return isTeacher ? (
-        <TeacherForm formVals={formVals} updateForm={updateForm} handleRegister={handleRegister} backToLogin={backToLogin("teach")}/>
+        <TeacherComp formVals={formVals} updateForm={updateForm} backToLogin={backToLogin("teach")}/>
       ) : isStudent ? (
-        <StudentForm formVals={formVals} updateForm = {updateForm} backToLogin={backToLogin("stu")}/>
+        <Student formVals={formVals} updateForm = {updateForm} backToLogin={backToLogin("stu")}/>
       ) : null
     }
     return (
-      <LoginForm formVals={formVals} updateForm={updateForm} handleLogin={handleLogin} toggleSignUp={toggleSignUp} />
+      <LoginComp formVals={formVals} updateForm={updateForm} toggleSignUp={toggleSignUp} toggleForgotPassword={toggleForgotPassword}/>
     )
   }
   

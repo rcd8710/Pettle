@@ -1,23 +1,158 @@
-.petInfoDiv {
-    background-color: rgb(235, 235, 235);
-    width: 400px;
-    height: 450px;
-    position: fixed;
-    right: 150px;
-    top: 20%;
-    border: 5px solid rgb(247, 211, 6); /* Inner border */
-    border-radius: 20px;
-    box-shadow: 0 0 0 6px rgba(239, 235, 39, 0.8); /* Outer border */
+body{
+    margin: 0;
+  }
+
+
+  .stagePage {
+    width: 100%;
+    height: 100vh;
+    background: 
+        /* Solid color for the left side */
+        linear-gradient(to right, red, rgb(124, 0, 0), rgb(107, 0, 0)),  /*oneZZ
+        /* Solid color for the right side */
+        linear-gradient(to left, red, rgb(124, 0, 0), rgb(92, 0, 0)),
+        /* Wood gradient colors */
+        linear-gradient(to right, #dea378, #65361f, #c3a175);
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-size: 120px 100%, 120px 100%, 100px 50%;
+    background-position: left top, right top, center;
 }
 
-.imageH1 {
-    width: 650px;
-    position: fixed;
-    bottom: -100px;
-    left: 200px;
+
+.petInfoDiv {
+    background-color:ivory; /* Soft light grey background */
+    width: 80%; /* Reduced width for better alignment */
+    max-width: 800px; /* Maximum width for larger screens */
+    height: 70vh;
+    margin: 0 auto; /* Center align horizontally */
+    padding: 20px; /* Added padding for spacing inside */
+    border: 1px solid #dcdcdc; /* Lighter inner border */
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+}
+
+/* Title styling */
+.petInfoDiv h2 {
+    font-size: 1.8em; /* Larger font size for the title */
+    color: #000000; /* Darker text color */
+    margin-bottom: 10px; /* Space below title */
+}
+
+/* Paragraph styling */
+.petInfoDiv p {
+    font-size: 1em; /* Standard text size */
+    color: #000000; /* Slightly darker text color */
+    line-height: 1.6; /* Improved line spacing */
+    margin-bottom: 15px; /* Space below paragraphs */
+}
+
+/* List styling */
+.petInfoDiv ul {
+    padding-left: 20px; /* Indent list items */
+}
+
+.petInfoDiv ul li {
+    font-size: 1em; /* Standard text size */
+    color: #000000; /* Darker grey for list items */
+    margin-bottom: 10px; /* Space below list items */
+}
+
+/* Header 3 styling */
+.petInfoDiv h3 {
+    font-size: 1.4em; /* Slightly larger font size for subheadings */
+    color: #333; /* Consistent text color */
+    margin-bottom: 10px; /* Space below subheading */
+}
+
+
+
+.topB:hover{
+    cursor: pointer;
 }
 
 .petRoomStage{
+    width: 50vw;
+    height: 200px;
+    z-index: 1;
+}
+
+.curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: flex;
+    z-index: 2;
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+.curtain .left,
+.curtain .right {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to right, red, rgb(124, 0, 0), rgb(33, 33, 33));
+    background-size: 200px, 200px;
+    background-repeat: repeat ;
+    transition: transform 4.5s ease;
+}
+
+.curtain .left {
+    left: 0;
+    transform: translateX(0);
+}
+
+.curtain .right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.curtain.open .left {
+    transform: translateX(-100%);
+}
+
+.curtain.open .right {
+    transform: translateX(100%);
+}
+
+.hidden{
+    display: none;
+}
+
+.cenStage{
+    margin-top: 20px;
+    width: 100%;
+    height: 83vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stageLights{
+    width: 50vw;
+    position: fixed;
+    top: -35px;
+    right: 42%;
+    z-index: 1;
+}
+.midStage{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightStage{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.can2{
+    background:none;
+    margin-bottom: -100px;
 }

@@ -25,11 +25,11 @@ const LeftNav = () => { // Capitalized component name
         <a href='#classroom' className='one' onClick={() => handleNavigate('/classroom')}>
           Classroom
         </a>
-        <a href='#english'>English</a>
-        <a href='#math'>Math</a>
-        <a href='#science'>Science</a>
-        <a href='#history'>History</a>
-        <a href='#health'>Health</a>
+        <a href='#english' onClick={() => handleNavigate('/english')}>English</a>
+        <a href='#math' onClick={() => handleNavigate('/math')}>Math</a>
+        <a href='#science' onClick={() => handleNavigate('/science')}>Science</a>
+        <a href='#history' onClick={() => handleNavigate('/history')}>History</a>
+        <a href='#health' onClick={() => handleNavigate('/health')}>Health</a>
         <a href='#logout' onClick={() => handleNavigate('/')}>
           Logout
         </a>

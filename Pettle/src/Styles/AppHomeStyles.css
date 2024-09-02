@@ -1,95 +1,72 @@
 body{
   margin: 0;
 }
-
 .page {
   width: 100%;
-  height: 703px;
-  background-image: url("../Assets/Backgrounds/back2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 100%;
+  background-image: url("../Assets/Backgrounds/realpawprints.png"), 
+  radial-gradient(circle, rgba(242, 235, 220, 0.9), rgba(225, 204, 182, 0.8), rgba(205, 174, 145, 0.7), rgba(185, 144, 115, 0.7));
+
 }
 
+
+/* Ensure the pseudo-elements don't overlap content */
+.page {
+  position: relative;
+  z-index: 0;
+}
+
+
+@font-face {
+  font-family: gameFont;
+  src: url("../Game-Font.ttf");
+}
 
 
 .headerOuter2 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-left: 22%;
-  width: 50%;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-top: 40px solid;
+  
 }
 
-.headerInner {
-  color: rgb(255, 255, 255);
+
+/* Make sure the wrapper takes up the full width of the viewport */
+.headerWrapper {
+  display: flex;
+  justify-content: center; /* Center the child horizontally */
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the wrapper itself */
+  width: 100vw; /* Full width to ensure centering */
+  height: 5vh; /* Height of the wrapper */
+  z-index: 1; /* Adjust as needed */
+}
+
+/* Styling for the header */
+.headerInner2 {
+  position: fixed;
+
+  background-color: rgb(0, 0, 0);
+  width: 70vw; /* Width of the trapezoid */
+  height: 10vh; /* Height of the trapezoid */
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%); /* Trapezoid facing down */
+}
+
+
+.headerInner3{
+  width: 100%;
   display: flex;
   justify-content: center;
-  
-  margin-top: 20px;
-  position: absolute;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 50px;
-  padding: 20px;
 }
 
-.TopB{
-  min-width: 90px;
-  height: 60px;
-  margin-top: 20px;
-  z-index: 2;
-  margin-left: 30px;
-  margin-right: 30px;
-  background-color:black;
-  border-color: transparent;
-  border-radius: 8px;
+.headerInner4{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
 }
-
-.TopB:hover{
-  cursor: pointer;
-  background-color: rgb(161, 0, 83);
-}
-
-.svg-inline--fa{
-  color: white;
-  font-size: 35px;
-  
-}
-
-.TopB2{
-  min-width: 90px;
-  height: 60px;
-  z-index: 2;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color:black;
-  border-color: transparent;
-  border-radius: 8px;
-}
-
-.TopB2:hover{
-  cursor: pointer;
-  background-color: rgb(161, 0, 83);
-}
-
-.disco{
-  position: relative;
-  width: 100%; /* Make the image take up the full width of its container */
-  height: 100%; /* Make the image take up the full height of its container */
-  object-fit: contain; /* Ensures the image covers the container, cropping if necessary */
-  max-width: 150px; /* Ensures the image doesn't exceed the container's width */
-  max-height: 60px; /* Ensures the image doesn't exceed the container's height */
-
-}
-
 
 .bars{
-  position: fixed;
-  left: 30px;
-  top:10px;
   width: 100px;
   border-radius: 50px;
   border-color: rgb(255, 255, 255);
@@ -103,6 +80,62 @@ body{
   cursor: pointer;
 }
 
+.navigation {
+  display: flex;
+  flex-direction: column;
+  background-color: #373737;
+  border-right: 5px solid #000000de;
+  padding: 10px;
+  position: absolute;
+  top: 0px; 
+  left: 0;
+  width: 15%;
+  height: 97.2%;
+  z-index: 1;
+   transition: transform 0.5s ease; 
+  transform: translateX(-100%);
+}
+
+.navigation.show {
+  transform: translateX(0); 
+}
+
+.navigation a {
+  padding: 10px;
+  text-decoration: none;
+  margin: 24px;
+  color: #ffffff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  position: relative; 
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; 
+  width: 70%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease; 
+  
+}
+
+
+.navigation a:hover {
+  color: rgb(255, 0, 132); 
+}
+
+.navigation a:hover::after {
+  background-color: rgb(255, 0, 132); 
+}
+
+.navigation .one {
+  margin-top: 70px;
+}
+
+
 span{
   text-align: center;
   padding-top: 4px;
@@ -112,104 +145,93 @@ span{
 }
 
 .currency {
-  position: fixed;
-  background-color: rgb(255, 255, 255);
-  right: 30px;
-  top:10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.904);
   width: 150px;
   border-radius: 50px;
   outline: 4px solid rgb(243, 225, 34);
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  text-align: end;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
+  font-family: gameFont;
+  margin: 5px;
+  font-size: 30px;
+  z-index: 1;
+  gap: 20px;
+}
+
+
+
+.TopB{
+  position: relative;
+  width: 8vw;
+  height: 8vh;
+  background-color:black;
+  border-color: transparent;
+  border-radius: 8px;
+  z-index: 2;
+  margin-bottom: 5px;
+  margin-top: -12px;
+  
+  
+}
+
+.TopB:hover{
+  cursor: pointer;
+  background-color: rgb(161, 0, 83);
+}
+
+
+.svg-inline--fa{
+  font-size: 35px;
+  
 }
 
 .fa-coins{
-  color: rgb(255, 230, 0);
-  font-size: 40px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-right: 20px;
+  color: rgb(255, 255, 31);
+}
+
+
+.fa-paw{
+  color: rgb(255, 255, 255);
 
 }
 
-.xp-container {
-  position: fixed;
+.fa-bars{
+  color: white;
+}
+.fa-house {
+  color: white;
+}
+.fa-shop{
+  color: white;
+}
+
+.TopB2{
+  width: 8vw;
+  height: 8vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  bottom: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgb(91, 125, 246); /* White text */
-  padding: 10px 5px; /* Padding for some spacing */
-  box-shadow: 0px 4px 8px rgba(0, 101, 234, 0.1); /* Light shadow for depth */
-  font-size: 20px; /* Font size */
-  font-weight: bold; /* Bold font */
-  width: 45%;
-  
   z-index: 2;
-  border-width: 7px;
-  border-style:groove;
-  border-radius: 50px;
-  background-color: rgb(124, 197, 249);
-}
-.xp {
-  background-color: #ebe8e8; /* Darker green background for the bar */
-  width: 120%;
-  height: 20px; /* Height of the XP bar */
-  border-radius: 50px;
-  z-index: 2;
-}
-.xp-fill {
-  background: linear-gradient(to right, #FFD700, #FFB700); /* Gold gradient */
-  height: 100%;
-  width: 50%; /* Width of the fill, this should be dynamic based on the XP */
-  border-radius: 50px;
-  z-index: 2;
+  background-color:black;
+  border-color: transparent;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  margin-top: -12px;
 }
 
-.podium-container {
-  position: fixed;
-  width: 800px;
-  height: 220px;
-  bottom: -5px;
-  left: 23%;
-}
-
-.pod {
-  width: 100%;
-  height: auto;
-}
-
-
-
-.dailyCon{
-  width: 350px;
-  height: 590px;
-  position: fixed;
-  right: 20px;
-  bottom: 5%;
-}
-
-.con{
-  background-color: white;
-  height: 175px;
-  width: 350px;
-  gap: 20px;
-  border-style: solid;
-  margin-top: 20px;
-  border-radius: 9px;
-  border-style:solid;
-}
-
-.con:hover{
+.TopB2:hover{
   cursor: pointer;
+  background-color: rgb(161, 0, 83);
 }
+
+.disco{
+  position: relative;
+  min-width: 90px;
+  height: 7.5vh; /* Make the image take up the full width of its container */
+  object-fit: contain; /* Ensures the image covers the container, cropping if necessary */
+
+}
+
 .navigation {
   display: flex;
   flex-direction: column;
@@ -217,51 +239,335 @@ span{
   border-right: 5px solid #000000de;
   padding: 10px;
   position: absolute;
-  top: 0px; /* Adjust according to your header height */
+  top: 0px; 
   left: 0;
   width: 15%;
   height: 97.2%;
   z-index: 1;
-   transition: transform 0.5s ease; /* Add transition for transform property */
-  transform: translateX(-100%); /* Initially hide the navigation off-screen */
+   transition: transform 0.5s ease; 
+  transform: translateX(-100%);
 }
 
 .navigation.show {
-  transform: translateX(0); /* Show the navigation by sliding it to the right */
+  transform: translateX(0); 
+}
+
+.centerDiv{
+  width: 100%;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middleDiv {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 
-.navigation a {
+.rightDiv {
+  width: 23%;
+  background-color: green;
+  height: 80%;
+  background-image: url(../Assets/Backgrounds/foodchain.jpg);
+  background-size: cover;
+  display: flex;
+  font-family: gameFont;
+  
+  justify-content: center;
+  align-items: start;
+  position: relative; /* Ensure .label2 is positioned relative to .rightDiv */
+}
+
+.label2 {
+  backdrop-filter: blur(15px); /* Applies a blur effect to the background */
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  position: absolute; /* Position absolutely within .rightDiv */
+  top: 10px; /* Set distance from the top */
+  border-radius: 20px;
+  font-size: 50px;
+  border-style: solid;
+  border-width: 6px;
+  border-color: rgb(255, 255, 255);
+  color: white;
+  text-align: center;
   padding: 10px;
-  text-decoration: none;
-  margin: 24px;
-  color: #ffffff;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-  position: relative; /* Needed for the pseudo-element */
 }
 
-.navigation a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px; /* Adjust this value to control the underline position */
-  width: 70%;
-  height: 2px;
-  background-color: transparent;
-  transition: background-color 0.3s ease; /* Smooth transition for the underline effect */
+
+
+.canDiv{
+  width: 65%;
+  height: 100%;
+  border-radius: 50%;
+  margin-right: 20px
   
 }
 
-
-.navigation a:hover {
-  color: rgb(255, 0, 132); /* Purple color for the text on hover */
+canvas{
+  
+  background-size: contain;
+  border-radius: 50%;
 }
 
-.navigation a:hover::after {
-  background-color: rgb(255, 0, 132); /* Purple color for the underline on hover */
+.leftDiv {
+  width: 23%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-style: solid;
 }
 
-.navigation .one {
-  margin-top: 70px;
+.leftDiv > div {
+  padding: 10px;
+  border-radius: 8px;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  font-family: gameFont;
+  font-size: 35px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Example styles for each meter */
+.happinessMeter {
+  background: linear-gradient(135deg, #ffcccb 0%, #ff9999 100%);
+}
+
+.hungerMeter {
+  background: linear-gradient(135deg, #ffeb3b 0%, #ffdd57 100%);
+}
+
+.thirstMeter {
+  background: linear-gradient(135deg, #2196f3 0%, #64b5f6 100%);
+}
+
+.energyMeter {
+  background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+}
+
+.socialMeter {
+  background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+}
+
+.exerciseMeter {
+  background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
+}
+
+.heart {
+  height: 20px;
+  width: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  box-shadow: -2px 2px 5px red;
+  animation: heart 0.6s linear infinite;
+}
+@keyframes heart {
+  0%{
+    transform: rotate(-45deg) scale(1.07);
+  }
+  100%{
+    transform: rotate(-45deg) scale(1.0);
+  }
+  100%{
+    transform: rotate(-45deg) scale(0.8);
+  }
+  
+}
+
+.heart:before{
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background:red;
+  top:-50%;
+  border-radius:60px;
+  box-shadow: -2px 2px 5px red;
+}
+.heart::after{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  right: -50%;
+  border-radius: 60px;
+  box-shadow: -2px 2px 5px red;
+
+}
+
+
+
+.slice {
+  height: 100%;
+  width: 40px;
+  transform-origin: center bottom; /* Set origin to the bottom center for better effect */
+  animation: slicePulse 0.6s linear infinite;
+}
+
+@keyframes slicePulse {
+  0% {
+    transform: scale(1.07);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+
+@keyframes slicePulse {
+  0% {
+    transform: scale(1.07);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.droplet{
+  height: 100%;
+  width: 40px;
+  transform-origin: center bottom; /* Set origin to the bottom center for better effect */
+  animation: slicePulse 0.6s linear infinite;
+}
+
+.bolt{
+  height: 80%;
+  width: 30px;
+  transform-origin: center bottom; /* Set origin to the bottom center for better effect */
+  animation: slicePulse 0.6s linear infinite;
+}
+
+.speak{
+  height: 100%;
+  width: 40px;
+  transform-origin: center bottom; /* Set origin to the bottom center for better effect */
+  animation: slicePulse 0.6s linear infinite;
+}
+
+.weight{
+  height: 100%;
+  width: 40px;
+  transform-origin: center bottom; /* Set origin to the bottom center for better effect */
+  animation: slicePulse 0.6s linear infinite;
+}
+
+.bottomDiv{
+  width: 100%;
+  height: 22vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Lvl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  color: #000599;
+  background-image: repeating-linear-gradient(45deg, #efd898, #FFB700, #ffff00, rgb(255, 234, 0));
+  border-radius: 10px;
+  border-style: solid;
+  margin: 2px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.xp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  color: #f3ee00;
+  padding: 10px 5px;
+  box-shadow: 0px 4px 8px rgba(33, 0, 117, 0.301);
+  font-size: 20px;
+  font-weight: bold;
+  border-width: 12px;
+  border-style: double;
+  border-radius: 20px;
+  background-color: rgba(9, 25, 168, 0.749);
+}
+
+
+.xp {
+  background-color: #a4ecec;
+  width: 100%; /* Adjust width to fit within the container */
+  height: 25px;
+  border-radius: 50px;
+  overflow: hidden;
+  display: flex; /* Add flexbox to center content */
+  justify-content: start; /* Center XP fill within */
+  align-items: center;
+}
+
+/* XP fill */
+.xp-fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: repeating-linear-gradient(45deg, #efd898, #FFB700, #ffff00, rgb(255, 234, 0));
+  animation: slide var(--speed) linear infinite;
+  height: 100%;
+  width: 50%;
+  border-radius: 50px;
+  animation: 
+    shine 4s ease-in infinite,
+    end 1s ease-out infinite;
+  transition: width 3s ease;
+  color: black;
+}
+
+/* Shine animation */
+@keyframes shine {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* End animation */
+@keyframes end {
+  0%, 100% { box-shadow: 0 0 10px 0px orange; }
+  50% { box-shadow: 0 0 15px 5px orange; }
+}
+
+
+
+
+
+
+
+
+
+.increaseXp {
+  background-color: #b300ff;
+  width: 50px;
+  height: 200px;
+}
+
+
+
+
