@@ -32,5 +32,7 @@ const NavHeader2 = () => {
 </div>
 );
 };
-
+//Returning the memoized version means that the componenet will only rerender if its props change, in this case it has no props.
+//So it will not unnessicarily rerender, note this is different from usecallback in there is no last call/cahched value to reference, it
+//just emphasizes not rerendering until props change
 export default React.memo(NavHeader2);

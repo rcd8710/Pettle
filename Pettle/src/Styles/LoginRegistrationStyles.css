@@ -221,8 +221,6 @@ h2{
 }
 
 .BLogin{
-  right:47.5% ;
-  position: absolute;
   bottom: 25%;
   margin-top: 20px;
 }
@@ -231,7 +229,8 @@ h2{
   cursor: pointer;
   color: blue;
 }
-.BLogin1:hover{
+.Login1{
+  margin-top: 20px;
 }
 
 .BLogin1:hover {

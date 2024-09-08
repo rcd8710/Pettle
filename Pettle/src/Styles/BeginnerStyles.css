@@ -1,0 +1,71 @@
+
+/* Container for the entire page */
+.begPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff; /* Light, vibrant background color */
+    position: relative;
+  }
+  
+  /* Styling for each pop-up modal */
+  .openCard, .step2, .step3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px; /* Ensures it doesn’t get too wide */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Specific styling for the input and buttons */
+  .input-bar {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff69b4; /* Vibrant pink color */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+  }
+  
+  /* Additional styles for step 2 and step 3, if needed */
+  .step2 {
+    background-color: #e6e6fa; /* Light lavender color */
+  }
+  
+  .step3 {
+    background-color: #fafad2; /* Light goldenrod color */
+  }
+  
+  /* Hide elements with class 'hidden' */
+  .hidden {
+    display: none;
+  }
+
+  .popupcontent{
+    width: 500px;
+    height: 500px;
+  }
+

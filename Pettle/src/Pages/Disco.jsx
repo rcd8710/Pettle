@@ -1,6 +1,4 @@
 import React, {useState } from 'react'
-
-import ballRoom from "../Assets/Backgrounds/ballroom.png"
 import "../Styles/DiscoStyles.css"
 import { useNavigate } from 'react-router-dom';
 import AppNav from '../Components/AppNav';

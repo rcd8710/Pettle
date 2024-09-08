@@ -11,36 +11,110 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 const http = require("http");
-const { Server } = require("socket.io");
 const server = http.createServer(app);
-const room = "school"
 const io = require('socket.io')(server, {
   cors: {
     origin: '*',
   }
 });
 io.on('connection', (socket) => {
+  // User connects to the socket
+  
   console.log(`User Connected: ${socket.id}`);
-
-  socket.on("join-class", async (data) => {
+  //Console logs that a user has been connected
+  socket.on('join-class', async (data) => {
+    //One of the components has emitted socket join class
     try {
+      //What does the async mean? It means that when the socket is getting the data in this case, it allows other tasks to be preformed, its like sending
+      //Someone to go get something and going to do chores while you wait for them to come back.
+
+      //Here await stops the execution of the join-class allows other processes to complete while fetching the codeVal from the database 
       const classcodeFind = await pool.query(
         'SELECT * FROM public.pettle_db WHERE classcode = $1',
-        
-        [data]
+        [data.codeVal]
       );
-      const classcodeFindResult = classcodeFind.rows[0]
-      if(!classcodeFindResult){
-        console.log("code does not exist")
+      //This is not necessarily needed as there should only be one instance of the speciifc codeval or none but adds an extra layer of security
+      const classcodeFindResult = classcodeFind.rows[0];
+      if (!classcodeFindResult) {
+        console.log("Code does not exist");
+        socket.emit("classcode-not-found");
+        return;
       }
-      socket.join(room)
+      //The room should be declared as the roomCode *IMPORTANT* keep track of all the rooms by having a table of all the room codes
+      const room = data.codeVal;
+      socket.join(room);
       console.log(`User ${socket.id} joined room: ${room}`);
+      //The user has been added to the room, they have been checked based on class code.
+      //Now they have to be added into the postgresql database 
+      const role = "student";
+      //The role student should already be known since right now the only way to get in through class code is by being a student
+      try {
+        //Check for the students user name
+        const stuUserResult = await pool.query(
+          'SELECT * FROM public.pettle_db WHERE username = $1',
+          [data.loginVal]
+        );
+
+        if (stuUserResult.rows.length > 0) {
+          socket.emit("student-exist");
+        }
+        //If the student doesnt exist, then it is addable, else tell the user that user is already in the room, and they need to login 
+        else {
+          const stuidsResult = await pool.query(
+            'SELECT stuid FROM public.pettle_db'
+          );
+          //Get every id from the database and find set newCOunt to the greatest value
+          const stuids = stuidsResult.rows.map(row => row.stuid);
+          const newCount = stuids.length > 0 ? Math.max(...stuids) + 1 : 1;
+          
+          await pool.query(
+            //Add the new student's id to the database, now about all the data for the student will have been added.
+            'INSERT INTO public.pettle_db (username, role, stuid) VALUES ($1, $2, $3)',
+            [data.loginVal, role, newCount]
+          );
+          console.log("Student added with ID:", newCount);
+          console.log("give-stu work")
+          //Allow the student to join in the frontend
+          socket.emit("student-join");
+
+          // Update student count after adding a new student
+          socket.emit("count-students", { count: newCount });
+        }
+      } catch (error) {
+        console.error('Error checking username:', error);
+      }
+    } catch (error) {
+      console.error('Error handling join-class:', error);
     }
-    catch(error){
-      console.error('Joining room:', error);
-    }
-    })
   });
+  //This is for when the classroom page needs to update the amount of students
+  socket.on('add-students', async () => {
+    try {
+      const getCountResults = await pool.query(
+        'SELECT COUNT(*) AS count FROM public.pettle_db WHERE role = $1',
+        ['student']
+      );
+      const studentCount = getCountResults.rows[0].count;
+      socket.emit("count-students", { count: studentCount });
+    } catch (error) {
+      console.error('Error fetching student count:', error);
+    }
+  });
+  //This is for when the Animal componenet needs to get the assign the id an animal
+  socket.on('give-stuid', async () => {
+    try {
+      const getStuidResults = await pool.query(
+        'SELECT COUNT(*) AS count FROM public.pettle_db WHERE role = $1',
+        ['student']
+      );
+      const myStuid = getStuidResults.rows[0].count;
+      socket.emit("stuid-give", { count: myStuid });
+    } catch (error) {
+      console.error('Error fetching student id:', error);
+    }
+  })
+});
+//The connections between the database and server
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
@@ -192,11 +266,11 @@ app.get('/verify-email', async (req, res) => {
     // Save user to the database
     const emailresult = await pool.query('SELECT * FROM public.pettle_db WHERE email = $1', [email]);
     const emailuser = emailresult.rows[0];
-
+    const role = "Teacher"
     if(!emailuser){
     await pool.query(
-      'INSERT INTO public.pettle_db (email, password, username, classcode) VALUES ($1, $2, $3, $4)',
-      [email, hashedPassword, login, classCode]
+      'INSERT INTO public.pettle_db (email, password, username, classcode, role) VALUES ($1, $2, $3, $4, $5)',
+      [email, hashedPassword, login, classCode, role]
     );
   }
   } catch (dbError) {

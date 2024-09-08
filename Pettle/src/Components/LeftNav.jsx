@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'; // Import useCallback and useState
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faPaw, faShop, faBars } from '@fortawesome/free-solid-svg-icons';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const LeftNav = () => { // Capitalized component name

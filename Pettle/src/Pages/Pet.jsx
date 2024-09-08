@@ -5,22 +5,21 @@ import AppNav from '../Components/AppNav';
 import lights from '../Assets/Objects/lights.png'
 import { Environment, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import Pup2 from '../../public/Pup2';
-import Bugbud from '../../public/Bugbud'
+import Spider1 from '../../public/Spider1'
 import stage from "../Assets/Objects/stagePlat.png"
 
 
 
 export default function Pet() {
     const [isOpen, setIsOpen] = useState(false);
-
+    
     useEffect(() => {
         // Open the curtain when the component mounts
         setIsOpen(true);
         
         // Set a timer to remove the curtain after the animation duration
         const timer = setTimeout(() => {
-            document.querySelector(".curtain").classList.add("hidden")
+            documentr.querySelecto(".curtain").classList.add("hidden")
         }, 4800); // Duration should match the CSS transition time
 
         return () => clearTimeout(timer); // Cleanup timer if component unmounts
@@ -42,7 +41,7 @@ export default function Pet() {
               maxPolarAngle={1.9 * Math.PI / 3} 
             />
             <Suspense fallback={null}>
-              <Pup2/>
+              <Spider1/>
             </Suspense>
             <Environment preset='sunset' />
           </Canvas>

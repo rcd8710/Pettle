@@ -24,7 +24,10 @@
     "nodemailer": "^6.9.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-flip-page": "^1.6.4",
+    "react-pageflip": "^2.0.3",
     "react-router-dom": "^6.26.0",
+    "reactjs-popup": "^2.0.6",
     "socket.io-client": "^4.7.5",
     "three": "^0.167.1",
     "vite-project": "file:"

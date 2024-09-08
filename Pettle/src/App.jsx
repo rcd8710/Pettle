@@ -12,12 +12,14 @@ import Math from './Pages/Math';
 import Science from './Pages/Science';
 import History from './Pages/History';
 import Health from './Pages/Health';
+import BeginnerStudentPage from './Pages/BeginnerPage';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/beg-page" element={<BeginnerStudentPage />} />
         <Route path="/home" element={<AppHome />} />
         <Route path="/pet" element={<Pet />} />
         <Route path="/disco" element={<Disco />} />
