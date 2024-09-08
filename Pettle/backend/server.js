@@ -119,7 +119,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'postgres',
-  password: 'rdas0095',
+  password: 'N/A',
   port: 5173,  // Correct port for PostgreSQL
 });
 
