@@ -113,6 +113,10 @@ io.on('connection', (socket) => {
       console.error('Error fetching student id:', error);
     }
   })
+
+ // socket.on('send-disco-message'),  async(data) => {
+  //  io.to(room).emit(data)
+  // }
 });
 //The connections between the database and server
 const pool = new Pool({

@@ -2,8 +2,8 @@
   width: 100%;
   height: 40vh;
   margin-top: -30px;
+  display: flex;
 }
-
 
 
 .headerOuter2-1{
@@ -36,31 +36,11 @@
   background-size: cover;
 }
 
-.chatBox {
-  width: 20%;
-  height: 100%;
-  margin-left: 40px;
-  border: 5px solid rgb(0, 0, 0); /* Light border */
 
-  border-radius: 15px; /* Rounded corners */
-  background: linear-gradient(135deg, #c7c7c7b8, #ffffffa5,rgba(255, 255, 255, 0.677), rgba(182, 182, 182, 0.71)); /* Soft gradient background */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow: hidden; /* Ensure content stays within the box */
-  display: flex;
-  flex-direction: column; /* Align items vertically */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
-
-.textBox{
-  width: 100%;
-  height: 87%;
-  background-color: rgba(0, 0, 255, 0.119);
-  border-style: solid;
-  border-left: none;
-  border-top: none;
-}
 .inputBar{
   display: flex;
+  justify-content:start ;
+  align-items: end;
 }
 .inputText{
   display: flex;
@@ -87,16 +67,83 @@
   border-color: transparent;
 }
 
-.textB {
-  padding: 7px; /* Preserved size */
-  margin-left: 1px; /* Preserved margin */
+/* Chat Box Container */
+.chatBox {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
   width: 20%;
-  border: none; /* Remove border */
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
-  color: #fff; /* White text color */
-  cursor: pointer; /* Pointer cursor on hover */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.123), inset 0 2px 4px rgba(255, 255, 255, 0.216); /* Outer shadow with slight inner glow */
+  margin: 20px;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Text Box for Messages */
+.textBox {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.123), inset 0 2px 4px rgba(255, 255, 255, 0.216); /* Shadow effect */
+  background-color: #f9f9f968;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; /* Enable scrolling within the textBox if needed */
+}
+
+/* Individual Message Box */
+.messageBox {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e0f7fa;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* Message Text */
+.messageBox p {
+  max-width: 90%;
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Input Bar Container */
+.inputBar {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* Input Text Field */
+.inputText {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Send Button */
+.textB {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #25bcc0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .textB:hover {
