@@ -116,14 +116,14 @@ io.on('connection', (socket) => {
 
  // socket.on('send-disco-message'),  async(data) => {
   //  io.to(room).emit(data)
-  // }
+  //}
 });
 //The connections between the database and server
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'postgres',
-  password: 'N/A',
+  password: 'rdas0095',
   port: 5173,  // Correct port for PostgreSQL
 });
 
